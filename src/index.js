@@ -98,7 +98,7 @@ ${answers.contribution}
 ${answers.tests}
 
 <a name="questions"></a>
-## Questions 
+### Questions 
 Should you have any questions regarding this project please reach me via email or via my GitHub using the details below:
 
 -Email address: ${answers.email}
