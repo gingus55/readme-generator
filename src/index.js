@@ -1,6 +1,6 @@
 // import inquirer
 const inquirer = require("inquirer");
-
+const utilities = require("./utilities");
 // set questions
 const questions = [
   {
@@ -79,7 +79,7 @@ const writeReadme = (answers) => `
 3. [User Guidance]
     1. [Contribution Guidelines](#contribution)
     2. [Contribution Guidelines](#test)
-4. [Another paragraph](#paragraph2)
+4. [Questions](#questions)
 
 ### Description of application <a name="description"></a>
 ${answers.description}
@@ -95,8 +95,10 @@ ${answers.contribution}
 #### Test Instructions <a name="test"></a>
 ${answers.tests}
 
-## Another paragraph <a name="paragraph2"></a>
-The second paragraph text
+## Questions <a name="questions"></a>
+Should you have any questions regarding this project please reach me via email or via my GitHub using the details below:
+-Email address: ${answers.email}
+-GitHub username : ${answers.githubName}
 `;
 
 // start program
@@ -106,10 +108,10 @@ const start = async () => {
 
   const readmeDoc = writeReadme(readmeAnswers);
 
-  console.log(readmeDoc);
+  //   console.log(readmeDoc);
 
   // write to file with data and path
-  // util.writeToFile('BIO.txt', dataToWrite);
+  utilities.writeToFile("generatedREADME.md", readmeDoc);
 };
 
 start();
