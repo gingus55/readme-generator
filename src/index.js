@@ -76,7 +76,7 @@ const writeReadme = (answers) => `
 ## Table of contents
 1. [Description](#description)
 2. [User Story](#userstory)
-3. [User Guidance]
+3. User Guidance
     1. [Contribution Guidelines](#contribution)
     2. [Test Instructions](#test)
 4. [Questions](#questions)
