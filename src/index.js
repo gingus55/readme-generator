@@ -71,33 +71,38 @@ const questions = [
 
 const writeReadme = (answers) => `
 
-#${answers.title}
+# ${answers.title}
 
 ## Table of contents
 1. [Description](#description)
 2. [User Story](#userstory)
 3. [User Guidance]
     1. [Contribution Guidelines](#contribution)
-    2. [Contribution Guidelines](#test)
+    2. [Test Instructions](#test)
 4. [Questions](#questions)
 
-### Description of application <a name="description"></a>
+<a name="description"></a>
+### Description of application 
 ${answers.description}
 
-### User Story <a name="userstory"></a>
+<a name="userstory"></a>
+### User Story 
 ${answers.user}
 
 ### User guidance
-
-#### Contribution Guidelines <a name="contribution"></a>
+<a name="contribution"></a>
+#### Contribution Guidelines 
 ${answers.contribution}
-
-#### Test Instructions <a name="test"></a>
+<a name="test"></a>
+#### Test Instructions 
 ${answers.tests}
 
-## Questions <a name="questions"></a>
+<a name="questions"></a>
+## Questions 
 Should you have any questions regarding this project please reach me via email or via my GitHub using the details below:
+
 -Email address: ${answers.email}
+
 -GitHub username : ${answers.githubName}
 `;
 
