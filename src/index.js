@@ -1,5 +1,3 @@
-console.log("howdy planet");
-
 // import inquirer
 const inquirer = require("inquirer");
 
@@ -22,7 +20,7 @@ const questions = [
   },
   {
     type: "input",
-    name: "contributing",
+    name: "contribution",
     message: "What are your contribution guidelines?",
   },
   {
@@ -35,26 +33,27 @@ const questions = [
     name: "license",
     message: "What licenses are required in this project?",
     choices: [
-        {
-          name: 'Dogs',
-          value: 'dog',
-          short: 'D',
-        },
-        {
-          name: 'Cats',
-          value: 'cat',
-          short: 'C',
-        },
-        {
-          name: 'Snakes',
-          value: 'snake',
-          short: 'S',
-        },
-        {
-          name: 'Hamsters',
-          value: 'hamster',
-          short: 'H',
-        },
+      {
+        name: "Dogs",
+        value: "dog",
+        short: "D",
+      },
+      {
+        name: "Cats",
+        value: "cat",
+        short: "C",
+      },
+      {
+        name: "Snakes",
+        value: "snake",
+        short: "S",
+      },
+      {
+        name: "Hamsters",
+        value: "hamster",
+        short: "H",
+      },
+    ],
   },
   {
     type: "input",
@@ -67,35 +66,47 @@ const questions = [
     message: "What is your email address?",
   },
 ];
-// get answers
-
-// handle answers
 
 // write README - include readme markup
-// # Table of contents
-// 1. [Introduction](#introduction)
-// 2. [Some paragraph](#paragraph1)
-//     1. [Sub paragraph](#subparagraph1)
-// 3. [Another paragraph](#paragraph2)
 
-// ## This is the introduction <a name="introduction"></a>
-// Some introduction text, formatted in heading 2 style
+const writeReadme = (answers) => `
 
-// ## Some paragraph <a name="paragraph1"></a>
-// The first paragraph text
+#${answers.title}
 
-// ### Sub paragraph <a name="subparagraph1"></a>
-// This is a sub paragraph, formatted in heading 3 style
+## Table of contents
+1. [Description](#description)
+2. [User Story](#userstory)
+3. [User Guidance]
+    1. [Contribution Guidelines](#contribution)
+    2. [Contribution Guidelines](#test)
+4. [Another paragraph](#paragraph2)
 
-// ## Another paragraph <a name="paragraph2"></a>
-// The second paragraph text
+### Description of application <a name="description"></a>
+${answers.description}
+
+### User Story <a name="userstory"></a>
+${answers.user}
+
+### User guidance
+
+#### Contribution Guidelines <a name="contribution"></a>
+${answers.contribution}
+
+#### Test Instructions <a name="test"></a>
+${answers.tests}
+
+## Another paragraph <a name="paragraph2"></a>
+The second paragraph text
+`;
 
 // start program
 const start = async () => {
   // prompt questions and get answers
   const readmeAnswers = await inquirer.prompt(questions);
 
-  console.log(readmeAnswers);
+  const readmeDoc = writeReadme(readmeAnswers);
+
+  console.log(readmeDoc);
 
   // write to file with data and path
   // util.writeToFile('BIO.txt', dataToWrite);
