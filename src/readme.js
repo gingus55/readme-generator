@@ -89,7 +89,7 @@ const buildGuidance = (answers) => {
 <a id="contribution"></a>
 #### Contribution Guidelines 
     
-    ${answers.contribution}
+${answers.contribution}
 `;
   }
   if (answers.installationIncluded === true && answers.testIncluded === false) {
@@ -138,9 +138,9 @@ const buildQuestions = (answers) => `
 ### Questions 
 Should you have any questions regarding this project please reach me via email or via my GitHub using the details below:
 
--Email address: ${answers.email}
+    -Email address: ${answers.email}
 
--GitHub username : ${answers.githubName}`;
+    -GitHub username : ${answers.githubName}`;
 
 // write README - include readme markup
 
