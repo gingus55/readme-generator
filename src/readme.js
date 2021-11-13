@@ -66,13 +66,10 @@ ${description}
 ${usage}
 `;
 
-const buildGuidance = ({
-  installationIncluded,
-  testIncluded,
-  installation,
-  tests,
-  contribution,
-}) => {
+const buildGuidance = (
+  { installationIncluded, testIncluded, installation, tests, contribution },
+  instructionsArray
+) => {
   if (installationIncluded && testIncluded) {
     return `
 <a id="guidance"></a>
@@ -81,7 +78,7 @@ const buildGuidance = ({
 <a id="installation"></a>
 #### Installation Instructions 
     
-    ${installation}
+    ${instructionsArray}
 
 <a id="test"></a>
 #### Test Instructions 
@@ -146,11 +143,11 @@ Should you have any questions regarding this project please reach me via email o
 
 // write README - include readme markup
 
-const writeReadme = (answers) => {
+const writeReadme = (answers, instructionsArray) => {
   const title = buildTitleAndBadge(answers);
   const toc = buildTableOfContents(answers);
   const desc = buildDescription(answers);
-  const guide = buildGuidance(answers);
+  const guide = buildGuidance(answers, instructionsArray);
   const quest = buildQuestions(answers);
 
   return title + toc + desc + guide + quest;

@@ -30,12 +30,12 @@ const questions = [
     name: "installationIncluded",
     message: "Do I need to install your application?",
   },
-  {
-    type: "input",
-    name: "installation",
-    message: "How do I install your application?",
-    when: (answers) => answers.installationIncluded,
-  },
+  // {
+  //   type: "input",
+  //   name: "installation",
+  //   message: "How do I install your application?",
+  //   when: (answers) => answers.installationIncluded,
+  // },
   {
     type: "confirm",
     name: "testIncluded",
@@ -82,12 +82,39 @@ const questions = [
   },
 ];
 
+const installQuestions = [
+  {
+    type: "input",
+    name: "step",
+    message: "Enter your installation step:",
+  },
+  {
+    type: "confirm",
+    name: "continue",
+    message: "Would you like to add another step?",
+  },
+];
+
 // start program
 const start = async () => {
   // prompt questions and get answers
   const readmeAnswers = await inquirer.prompt(questions);
+  let instructionsArray = [];
 
-  const readmeDoc = writeReadme(readmeAnswers);
+  // trial install steps
+  if (readmeAnswers.installationIncluded) {
+    let active = true;
+    while (active) {
+      installationInstructions = await inquirer.prompt(installQuestions);
+      if (installationInstructions.continue) {
+        instructionsArray.push(installationInstructions.step);
+      } else {
+        instructionsArray.push(installationInstructions.step);
+        active = false;
+      }
+    }
+  }
+  const readmeDoc = writeReadme(readmeAnswers, instructionsArray);
 
   // write to file with data and path
   utilities.writeToFile("generatedREADME.md", readmeDoc);
