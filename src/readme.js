@@ -41,11 +41,7 @@ const buildTableOfContents = (answers) => {
 4. [Questions](#questions)
 
 `;
-  }
-  if (
-    answers.installationIncluded === false &&
-    answers.testIncluded === false
-  ) {
+  } else {
     return `
 
 ## Table of contents
@@ -80,10 +76,10 @@ const buildGuidance = (answers) => {
 #### Installation Instructions 
     
     ${answers.installation}
-    
+
 <a id="test"></a>
 #### Test Instructions 
-    
+   
     ${answers.tests}
     
 <a id="contribution"></a>
