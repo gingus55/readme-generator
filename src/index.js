@@ -68,7 +68,7 @@ const questions = [
 const writeReadme = (answers) => `
 
 # ${answers.title}
-![${answers.license}]https://img.shields.io/static/v1?label=${answers.license}&message=License&color=green
+![${answers.license}](https://img.shields.io/static/v1?label=${answers.license}&message=License&color=green)
 
 ## Table of contents
 1. [Description](#description)
