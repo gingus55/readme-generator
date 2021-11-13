@@ -86,7 +86,6 @@ const questions = [
 const start = async () => {
   // prompt questions and get answers
   const readmeAnswers = await inquirer.prompt(questions);
-  console.log(readmeAnswers);
 
   const readmeDoc = writeReadme(readmeAnswers);
 
