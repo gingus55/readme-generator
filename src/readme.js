@@ -1,8 +1,8 @@
-const buildTitleAndBadge = (answers) => `# ${answers.title}
-![${answers.license}](https://img.shields.io/static/v1?label=${answers.license}&message=License&color=green)`;
+const buildTitleAndBadge = ({ title, license }) => `# ${title}
+![${license}](https://img.shields.io/static/v1?label=${license}&message=License&color=green)`;
 
-const buildTableOfContents = (answers) => {
-  if (answers.installationIncluded === true && answers.testIncluded === true) {
+const buildTableOfContents = ({ installationIncluded, testIncluded }) => {
+  if (installationIncluded && testIncluded) {
     return `
 
 ## Table of contents
@@ -16,7 +16,7 @@ const buildTableOfContents = (answers) => {
 
 `;
   }
-  if (answers.installationIncluded === true && answers.testIncluded === false) {
+  if (installationIncluded && !testIncluded) {
     return `
 
 ## Table of contents
@@ -29,7 +29,7 @@ const buildTableOfContents = (answers) => {
 
 `;
   }
-  if (answers.installationIncluded === false && answers.testIncluded === true) {
+  if (!installationIncluded && testIncluded) {
     return `
 
 ## Table of contents
@@ -73,7 +73,7 @@ const buildGuidance = ({
   tests,
   contribution,
 }) => {
-  if (installationIncluded === true && testIncluded === true) {
+  if (installationIncluded && testIncluded) {
     return `
 <a id="guidance"></a>
 ### User guidance
@@ -94,7 +94,7 @@ const buildGuidance = ({
 ${contribution}
 `;
   }
-  if (installationIncluded === true && testIncluded === false) {
+  if (installationIncluded && !testIncluded) {
     return `
 <a id="guidance"></a>
 ### User guidance
@@ -109,7 +109,7 @@ ${contribution}
     
     ${contribution}`;
   }
-  if (installationIncluded === false && testIncluded === true) {
+  if (!installationIncluded && testIncluded) {
     return `<a id="guidance"></a>
 ### User guidance
     
@@ -135,14 +135,14 @@ ${contribution}
   }
 };
 
-const buildQuestions = (answers) => `
+const buildQuestions = ({ email, githubName }) => `
 <a id="questions"></a>
 ### Questions 
 Should you have any questions regarding this project please reach me via email or via my GitHub using the details below:
 
--Email address: ${answers.email}
+-Email address: ${email}
 
--GitHub username : ${answers.githubName}`;
+-GitHub username : ${githubName}`;
 
 // write README - include readme markup
 
