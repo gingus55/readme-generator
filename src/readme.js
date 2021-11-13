@@ -55,19 +55,25 @@ const buildTableOfContents = (answers) => {
   }
 };
 
-const buildDescription = (answers) => `
+const buildDescription = ({ description, usage }) => `
 <a id="description"></a>
 ### Description of application 
-${answers.description}
+${description}
 
 <a id="user-story"></a>
 ### User Story 
 
-${answers.usage}
+${usage}
 `;
 
-const buildGuidance = (answers) => {
-  if (answers.installationIncluded === true && answers.testIncluded === true) {
+const buildGuidance = ({
+  installationIncluded,
+  testIncluded,
+  installation,
+  tests,
+  contribution,
+}) => {
+  if (installationIncluded === true && testIncluded === true) {
     return `
 <a id="guidance"></a>
 ### User guidance
@@ -75,20 +81,20 @@ const buildGuidance = (answers) => {
 <a id="installation"></a>
 #### Installation Instructions 
     
-    ${answers.installation}
+    ${installation}
 
 <a id="test"></a>
 #### Test Instructions 
    
-    ${answers.tests}
+    ${tests}
     
 <a id="contribution"></a>
 #### Contribution Guidelines 
     
-${answers.contribution}
+${contribution}
 `;
   }
-  if (answers.installationIncluded === true && answers.testIncluded === false) {
+  if (installationIncluded === true && testIncluded === false) {
     return `
 <a id="guidance"></a>
 ### User guidance
@@ -96,26 +102,26 @@ ${answers.contribution}
 <a id="installation"></a>
 #### Installation Instructions 
     
-    ${answers.installation}
+    ${installation}
     
 <a id="contribution"></a>
 #### Contribution Guidelines 
     
-    ${answers.contribution}`;
+    ${contribution}`;
   }
-  if (answers.installationIncluded === false && answers.testIncluded === true) {
+  if (installationIncluded === false && testIncluded === true) {
     return `<a id="guidance"></a>
 ### User guidance
     
 <a id="test"></a>
 #### Test Instructions 
     
-    ${answers.tests}
+    ${tests}
     
 <a id="contribution"></a>
 #### Contribution Guidelines 
     
-    ${answers.contribution}`;
+    ${contribution}`;
   } else {
     return `
 <a id="guidance"></a>
@@ -124,7 +130,7 @@ ${answers.contribution}
 <a id="contribution"></a>
 #### Contribution Guidelines 
     
-    ${answers.contribution}
+    ${contribution}
     `;
   }
 };
