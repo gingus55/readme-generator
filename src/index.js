@@ -31,27 +31,23 @@ const questions = [
   {
     type: "list",
     name: "license",
-    message: "What licenses are required in this project?",
+    message: "What licenses is required for this project?",
     choices: [
       {
-        name: "Dogs",
-        value: "dog",
-        short: "D",
+        name: "MIT",
+        value: "mit",
       },
       {
-        name: "Cats",
-        value: "cat",
-        short: "C",
+        name: "GitHub",
+        value: "github",
       },
       {
-        name: "Snakes",
-        value: "snake",
-        short: "S",
+        name: "BossMan",
+        value: "bossman",
       },
       {
-        name: "Hamsters",
-        value: "hamster",
-        short: "H",
+        name: "No License Required",
+        value: "none",
       },
     ],
   },
@@ -72,6 +68,7 @@ const questions = [
 const writeReadme = (answers) => `
 
 # ${answers.title}
+![${answers.license}]https://img.shields.io/static/v1?label=${answers.license}&message=License&color=green
 
 ## Table of contents
 1. [Description](#description)
