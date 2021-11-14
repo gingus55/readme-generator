@@ -66,10 +66,14 @@ ${description}
 ${usage}
 `;
 
+const buildInstructionsList = (instructionsArray) => {};
+
 const buildGuidance = (
-  { installationIncluded, testIncluded, installation, tests, contribution },
+  { installationIncluded, testIncluded, tests, contribution },
   instructionsArray
 ) => {
+  const instruct = buildInstructionsList(instructionsArray);
+  console.log(instruct);
   if (installationIncluded && testIncluded) {
     return `
 <a id="guidance"></a>
@@ -99,7 +103,7 @@ ${contribution}
 <a id="installation"></a>
 #### Installation Instructions 
     
-    ${installation}
+    ${instruct}
     
 <a id="contribution"></a>
 #### Contribution Guidelines 
