@@ -76,7 +76,6 @@ const buildGuidance = (
   instructionsArray
 ) => {
   const instruct = buildInstructionsList(instructionsArray);
-  console.log(instruct);
   if (installationIncluded && testIncluded) {
     return `
 <a id="guidance"></a>
@@ -84,8 +83,10 @@ const buildGuidance = (
     
 <a id="installation"></a>
 #### Installation Instructions 
-    
-    ${instructionsArray}
+
+\`\`\`    
+${instruct}
+\`\`\`
 
 <a id="test"></a>
 #### Test Instructions 
