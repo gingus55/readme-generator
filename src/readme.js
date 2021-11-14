@@ -66,7 +66,10 @@ ${description}
 ${usage}
 `;
 
-const buildInstructionsList = (instructionsArray) => {};
+const buildInstructionsList = (instructionsArray) => {
+  const list = instructionsArray.join("\n -");
+  return ` -${list}`;
+};
 
 const buildGuidance = (
   { installationIncluded, testIncluded, tests, contribution },
@@ -102,9 +105,11 @@ ${contribution}
     
 <a id="installation"></a>
 #### Installation Instructions 
-    
-    ${instruct}
-    
+
+\`\`\`    
+${instruct}
+\`\`\`
+
 <a id="contribution"></a>
 #### Contribution Guidelines 
     
@@ -147,14 +152,11 @@ Should you have any questions regarding this project please reach me via email o
 
 // write README - include readme markup
 
-const writeReadme = (answers, instructionsArray) => {
-  const title = buildTitleAndBadge(answers);
-  const toc = buildTableOfContents(answers);
-  const desc = buildDescription(answers);
-  const guide = buildGuidance(answers, instructionsArray);
-  const quest = buildQuestions(answers);
-
-  return title + toc + desc + guide + quest;
-};
+const writeReadme = (answers, instructionsArray) =>
+  buildTitleAndBadge(answers) +
+  buildTableOfContents(answers) +
+  buildDescription(answers) +
+  buildGuidance(answers, instructionsArray) +
+  buildQuestions(answers);
 
 module.exports = writeReadme;
