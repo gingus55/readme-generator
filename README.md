@@ -1,6 +1,14 @@
+# Link to repository
+
+https://github.com/gingus55/readme-generator
+
+# Link to video of application
+
+<a href="https://drive.google.com/file/d/1_cctTWB8GwKBCELUvnz0jQnLrDMyd9HY/view?usp=sharing">Video of application</a>
+
 THE FOLLOWING WAS GENERATED USING THE PROGRAM:
 
-# ReadMe Gerenarator
+# ReadMe Generator
 
 ![mit](https://img.shields.io/static/v1?label=mit&message=License&color=green)
 
@@ -13,7 +21,7 @@ THE FOLLOWING WAS GENERATED USING THE PROGRAM:
    2. [Contribution Guidelines](#contribution)
 4. [Questions](#questions)
 
-<a id="description"></a>
+<a id="description"></a>g
 
 ### Description of application
 
@@ -23,7 +31,7 @@ When prompted for info using inquirer a user can answer questions and have a rea
 
 ### User Story
 
-When prompted for information in the command line I provide answers to questions. WHEN asked if installations steps are used, if I respond, Y THEN a further set of questions are asked. THEN a readme.md file is generated for me.
+When prompted for information in the command line I provide answers to questions. WHEN asked if installations steps are used, if I respond y, THEN a further set of questions are asked. THEN a readme.md file is generated for me.
 
 <a id="guidance"></a>
 

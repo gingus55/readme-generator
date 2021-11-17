@@ -1,9 +1,7 @@
-// import inquirer
 const inquirer = require("inquirer");
 const utilities = require("./utilities");
 const writeReadme = require("./readme");
 
-// set questions
 const questions = [
   {
     type: "input",
@@ -30,12 +28,6 @@ const questions = [
     name: "installationIncluded",
     message: "Do I need to install your application?",
   },
-  // {
-  //   type: "input",
-  //   name: "installation",
-  //   message: "How do I install your application?",
-  //   when: (answers) => answers.installationIncluded,
-  // },
   {
     type: "confirm",
     name: "testIncluded",
@@ -95,13 +87,10 @@ const installQuestions = [
   },
 ];
 
-// start program
 const start = async () => {
-  // prompt questions and get answers
   const readmeAnswers = await inquirer.prompt(questions);
   let instructionsArray = [];
 
-  // trial install steps
   if (readmeAnswers.installationIncluded) {
     let active = true;
     while (active) {
@@ -116,7 +105,6 @@ const start = async () => {
   }
   const readmeDoc = writeReadme(readmeAnswers, instructionsArray);
 
-  // write to file with data and path
   utilities.writeToFile("generatedREADME.md", readmeDoc);
 };
 
