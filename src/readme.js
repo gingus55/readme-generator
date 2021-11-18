@@ -153,7 +153,7 @@ Should you have any questions regarding this project please reach me via email o
 
 // write README - include readme markup
 
-const writeReadme = (answers, instructionsArray) =>
+const writeReadme = ({ readmeAnswers: answers, instructionsArray }) =>
   buildTitleAndBadge(answers) +
   buildTableOfContents(answers) +
   buildDescription(answers) +
