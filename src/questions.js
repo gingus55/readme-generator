@@ -11,13 +11,18 @@ const questions = [
   },
   {
     type: "input",
-    name: "usage",
+    name: "userStory",
     message: "What is the user story of your application?",
   },
   {
     type: "input",
     name: "contribution",
     message: "What are your contribution guidelines?",
+  },
+  {
+    type: "input",
+    name: "usage",
+    message: "What is the usage of your application?",
   },
   {
     type: "confirm",

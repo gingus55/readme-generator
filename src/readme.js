@@ -9,6 +9,7 @@ const buildTableOfContents = ({ installationIncluded, testIncluded }) => {
 1. [Description](#description)
 2. [User Story](#user-story)
 3. [User Guidance](#guidance)
+    1. [Usage](#usage)
     1. [Installation Instructions](#installation)
     2. [Test Instructions](#test)
     3. [Contribution Guidelines](#contribution)
@@ -23,6 +24,7 @@ const buildTableOfContents = ({ installationIncluded, testIncluded }) => {
 1. [Description](#description)
 2. [User Story](#user-story)
 3. [User Guidance](#guidance)
+    1. [Usage](#usage)
     1. [Installation Instructions](#installation)
     2. [Contribution Guidelines](#contribution)
 4. [Questions](#questions)
@@ -36,6 +38,7 @@ const buildTableOfContents = ({ installationIncluded, testIncluded }) => {
 1. [Description](#description)
 2. [User Story](#user-story)
 3. [User Guidance](#guidance)
+    1. [Usage](#usage)
     1. [Test Instructions](#test)
     2. [Contribution Guidelines](#contribution)
 4. [Questions](#questions)
@@ -47,7 +50,8 @@ const buildTableOfContents = ({ installationIncluded, testIncluded }) => {
 ## Table of contents
 1. [Description](#description)
 2. [User Story](#user-story)
-3. [User Guidance](#guidance)
+    1. [Usage](#usage)
+    3. [User Guidance](#guidance)
     1. [Contribution Guidelines](#contribution)
 4. [Questions](#questions)
 
@@ -55,7 +59,7 @@ const buildTableOfContents = ({ installationIncluded, testIncluded }) => {
   }
 };
 
-const buildDescription = ({ description, usage }) => `
+const buildDescription = ({ description, userStory }) => `
 <a id="description"></a>
 ### Description of application 
 ${description}
@@ -63,7 +67,7 @@ ${description}
 <a id="user-story"></a>
 ### User Story 
 
-${usage}
+${userStory}
 `;
 
 const buildInstructionsList = (instructionsArray) => {
@@ -72,7 +76,7 @@ const buildInstructionsList = (instructionsArray) => {
 };
 
 const buildGuidance = (
-  { installationIncluded, testIncluded, tests, contribution },
+  { installationIncluded, testIncluded, tests, usage, contribution },
   instructionsArray
 ) => {
   const instruct = buildInstructionsList(instructionsArray);
@@ -80,7 +84,12 @@ const buildGuidance = (
     return `
 <a id="guidance"></a>
 ### User guidance
-    
+
+<a id="usage"></a>
+#### App Usage
+
+    ${usage}
+
 <a id="installation"></a>
 #### Installation Instructions 
 
@@ -103,7 +112,12 @@ ${contribution}
     return `
 <a id="guidance"></a>
 ### User guidance
-    
+
+<a id="usage"></a>
+#### App Usage
+
+  ${usage}
+
 <a id="installation"></a>
 #### Installation Instructions 
 
@@ -119,7 +133,12 @@ ${instruct}
   if (!installationIncluded && testIncluded) {
     return `<a id="guidance"></a>
 ### User guidance
-    
+
+<a id="usage"></a>
+#### App Usage
+
+    ${usage}
+
 <a id="test"></a>
 #### Test Instructions 
     
@@ -133,7 +152,13 @@ ${instruct}
     return `
 <a id="guidance"></a>
 ### User guidance
-    
+
+<a id="usage"></a>
+#### App Usage
+
+    ${usage}
+
+
 <a id="contribution"></a>
 #### Contribution Guidelines 
     
