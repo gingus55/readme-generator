@@ -181,7 +181,7 @@ Should you have any questions regarding this project please reach me via email o
 
 -Email address: ${email}
 
--GitHub username : ${githubName}`;
+-GitHub username : <a href='https://github.com/${githubName}'>${githubName}<a>`;
 
 // write README - include readme markup
 
