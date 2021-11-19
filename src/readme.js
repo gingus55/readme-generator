@@ -76,10 +76,13 @@ const buildInstructionsList = (instructionsArray) => {
 };
 
 const buildGuidance = (
-  { installationIncluded, testIncluded, tests, usage, contribution },
-  instructionsArray
+  { installationIncluded, testIncluded, usage, contribution },
+  instructionsArray,
+  testArray
 ) => {
   const instruct = buildInstructionsList(instructionsArray);
+  const test = buildInstructionsList(testArray);
+
   if (installationIncluded && testIncluded) {
     return `
 <a id="guidance"></a>
@@ -100,7 +103,9 @@ ${instruct}
 <a id="test"></a>
 #### Test Instructions 
    
-    ${tests}
+\`\`\`    
+${test}
+\`\`\`
     
 <a id="contribution"></a>
 #### Contribution Guidelines 
@@ -142,8 +147,10 @@ ${instruct}
 <a id="test"></a>
 #### Test Instructions 
     
-    ${tests}
-    
+\`\`\`    
+${test}
+\`\`\`
+
 <a id="contribution"></a>
 #### Contribution Guidelines 
     
@@ -178,11 +185,15 @@ Should you have any questions regarding this project please reach me via email o
 
 // write README - include readme markup
 
-const writeReadme = ({ readmeAnswers: answers, instructionsArray }) =>
+const writeReadme = ({
+  readmeAnswers: answers,
+  instructionsArray,
+  testArray,
+}) =>
   buildTitleAndBadge(answers) +
   buildTableOfContents(answers) +
   buildDescription(answers) +
-  buildGuidance(answers, instructionsArray) +
+  buildGuidance(answers, instructionsArray, testArray) +
   buildQuestions(answers);
 
 module.exports = writeReadme;

@@ -34,12 +34,12 @@ const questions = [
     name: "testIncluded",
     message: "Are there tests for this application?",
   },
-  {
-    type: "input",
-    name: "tests",
-    message: "How do I test your application?",
-    when: (answers) => answers.testIncluded,
-  },
+  // {
+  //   type: "input",
+  //   name: "tests",
+  //   message: "How do I test your application?",
+  //   when: (answers) => answers.testIncluded,
+  // },
   {
     type: "list",
     name: "license",
@@ -88,7 +88,21 @@ const installQuestions = [
   },
 ];
 
+const testQuestions = [
+  {
+    type: "input",
+    name: "step",
+    message: "Enter your test step:",
+  },
+  {
+    type: "confirm",
+    name: "continue",
+    message: "Would you like to add another step?",
+  },
+];
+
 module.exports = {
   questions,
   installQuestions,
+  testQuestions,
 };
